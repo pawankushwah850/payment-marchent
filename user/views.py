@@ -34,7 +34,6 @@ class UserSignup(ModelViewSet):
 
 
 class UserProfile(ModelViewSet):
-    # queryset = User.objects.all()
     serializer_class = UserProfileSerializer
     parser_classes = (parsers.FormParser, parsers.MultiPartParser, parsers.JSONParser,)
     renderer_classes = (renderers.JSONRenderer,)
@@ -47,6 +46,7 @@ class UserProfile(ModelViewSet):
             return User.objects.filter(pk=user_id)
         return User.objects.all()
 
-    @action(methods=['POST', 'GET', "PUT", 'DELETE'], detail=False)
-    def updateKycDocument(self):
-        pass
+    # @action(methods=['POST', 'GET', "PUT", 'DELETE'], detail=False)
+    # def updateKycDocument(self,request):
+    #     if self.request.method == "POST":
+    #         pass
